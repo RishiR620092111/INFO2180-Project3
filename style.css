@@ -1,0 +1,72 @@
+#main
+{
+  position: relative;
+}
+
+#main ul
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#main ul li
+{
+    float: left;
+}
+
+#main ul li a
+{
+    display: block;
+    color: white;
+    border-radius: 5px 5px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.logout{
+    position: absolute;
+    right: 0px;
+}
+
+.button{
+    background-color: blue;
+    color: white;
+    border: none;
+    height: 25px;
+    width: 100px;
+    font-weight: bold;
+}
+
+.msg{
+    color: black;
+    width: 500px;
+    border: 1px solid black;
+    background-color: #00ffff;
+}
+
+.button1{
+    background-color: blue;
+    color: white;
+    border: none;
+    width: 100px;
+    font-weight: bold;
+}
+
+.unread{
+    font-weight: bold;
+}
+
+.read{
+    font-weight: normal;
+}
+
+.hide{
+    display: none;
+}
