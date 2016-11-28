@@ -1,0 +1,53 @@
+
+<h1>Send a message.</h1>
+
+<form id="messageform">
+    <label for="recipient">Recipient: </label>
+    <input name="recipient" id="recipient" type="text"/> <br><br>
+
+    <label for="subject">Subject:  </label>
+    <input name="subject" id="subject" type="text"/> <br><br>
+
+    <label for="body">Message:  </label>
+    <textarea name="body" id="body" cols="50" rows="5"></textarea> <br><br>
+
+    <input value="Send" id="submit" type="submit" class="button"/>
+</form>
+
+<p id="status"></p>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    /* global $ */
+    $(document).ready(function(){
+        //Send Message
+        $("#mailform").on('submit', function(event){
+            event.preventDefault();
+            
+            var rec = $("#recipient").val();
+            var subject = $("#subject").val();
+            var body = $("#body").val();
+            
+            rec = rec.replace(" ",",");
+            
+            var display = ("recipients="+recp+"&subject="+subj+"&body="+body);
+            
+            var xmlhttp1 = new XMLHttpRequest();
+            
+            xmlhttp1.onreadystatechange = function(){
+                if (this.readyState == 4){
+                    if (this.status == 200) {
+                        $("#status").text(xmlhttp1.responseText);
+                    }
+                    else{
+                        $("#status").text("Error!");
+                    }
+                }
+            }
+            
+            xmlhttp2.open("POST", "cheapomail.php", true);
+            xmlhttp2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp2.send(display);
+        });
+    });
+</script>

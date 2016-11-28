@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>CheapoMail</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+    </head>
+    
+    <body>
+        
+        <!-- Navigation -->
+        <div id="main">
+            <ul>
+                <li><a class="nav" id="home" href="home.html">Home</a></li>
+                <li><a class="nav" id="send" href="send.html">Send Mail</a></li>
+                <li><a class="nav" id="adduser" href="add.html">Add User</a></li>
+                <li><a class="logout" id="logout" href="index.html">Logout</a></li>
+            </ul>
+        </div>
+        
+        <br><br>
+        <!-- End of Navigation -->
+
+        <!-- No Refresh -->
+        <div id="main">
+        
+            <h1>CheapoMail Login</h1>
+        
+            <form id="loginform">
+                <label for="username">Username: </label>
+                <input name="username" id="username" type="text"/> <br>
+            
+                <label for="password">Password: </label>
+                <input name="password" id="password" type="password"/> <br><br>
+            
+                <input value="Login" id="login" type="submit" class="button"/>
+            </form>
+        
+            <p id="status"></p>
+        </div>
+        <!-- End of no Refresh -->
+        
+    </body>
+</html>

@@ -1,0 +1,57 @@
+
+<h1>Add a new user.</h1>
+
+<form id="userform">
+    <label for="firstname">First Name: </label>
+    <input name="firstname" id="firstname" type="text"/> <br>
+
+    <label for="lastname">Last Name: </label>
+    <input name="lastname" id="lastname" type="text"/> <br>
+
+    <label for="username">Username: </label>
+    <input name="username" id="username" type="text"/> <br>
+
+    <label for="password">Password: </label>
+    <input name="password" id="pass" type="password"/> <br><br>
+
+    <input value="Add" id="submit" type="submit" class="button"/>
+</form>
+
+<p id="status"></p>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    
+    // Submitting user form.
+    $("#userform").on('submit', function(event){
+        console.log("The user has been added.");
+        
+        event.preventDefault();
+        
+        var firstname = $("#firstname").val();
+        var lastname = $("#lastname").val();
+        var username = $("#username").val();
+        var pass = $("#pass").val();
+        
+        var display = ('firstname='+firstname+'&lastname='+lastname+'&username='+username+'&password='+pass);
+        var link = 'cheapomail.php';
+     
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4){
+                    if (this.status == 200) {
+                        $("#status").text(xmlhttp.responseText);
+                    }
+                    else{
+                        $("#status").text("Error!");
+                    }
+            }
+        };
+        
+        xmlhttp.open("POST", link, true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(display);
+    });
+});
+</script>
